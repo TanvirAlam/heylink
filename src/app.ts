@@ -1,7 +1,9 @@
+import dotenv from "dotenv";
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import db from './models';
+dotenv.config();
 
 const app = express();
 const corsOptions = {
