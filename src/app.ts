@@ -1,4 +1,4 @@
-import express, {NextFunction, Request, Response} from 'express';
+import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import db from './models';
@@ -12,10 +12,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet()); // better-security
 app.use(cors(corsOptions)) // CORS issue
-db.sync();
+db.sync()
+    .then(() => console.log("connected to db"))
+    .catch(() => {
+        throw "error";
+    });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8089;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });

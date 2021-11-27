@@ -1,5 +1,7 @@
 import dbConfig from "../config/db.config";
 import sequelize from "sequelize";
+import {TransactionFactory} from "./transaction.model";
+import {PaymentNoteFactory} from "./payment_note.model"
 
 const connectDB = new sequelize.Sequelize(
     (process.env.DB_NAME = dbConfig.DB),
@@ -16,5 +18,8 @@ const connectDB = new sequelize.Sequelize(
         },
     }
 );
+
+export const Transaction = TransactionFactory(connectDB);
+export const PaymentNote = PaymentNoteFactory(connectDB);
 
 export default connectDB;
