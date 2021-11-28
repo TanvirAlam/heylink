@@ -19,3 +19,4 @@
       ```
 - Installing MySQL workbench
 - Create Models: `transaction.model` and `payment_note.model`
+- Creating the first POST Routes: `/api/v1/payments`
