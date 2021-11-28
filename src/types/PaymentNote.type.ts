@@ -1,4 +1,4 @@
-export interface PaymentNoteAttributes {
+export default interface PaymentNoteAttributes {
     payment_note_uuid: string;
     payment_note_period_from_datetime?: Date
     payment_note_period_to_datetime?: Date

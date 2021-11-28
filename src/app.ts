@@ -5,7 +5,7 @@ import cors from 'cors';
 import db from './models';
 dotenv.config();
 import bodyParser from 'body-parser';
-import router from './routes/payment';
+import paymentRouter from './routes/payment';
 
 const app = express();
 const corsOptions = {
@@ -23,7 +23,7 @@ db.sync()
         throw "error";
     });
 
-app.use('/api/v1/payments', router);
+app.use('/api/v1/payments', paymentRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}.`);
